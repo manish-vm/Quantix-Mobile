@@ -4,12 +4,12 @@ import { Platform } from 'react-native';
 
 const getDefaultApiBaseUrl = () => {
   if (Platform.OS === 'android') {
-    return 'https://quantix-backend-2w1l.onrender.com/api';
+    return 'http://10.0.2.2:5000/api';
   }
-  return 'https://quantix-backend-2w1l.onrender.com/api';
+  return 'http://localhost:5000/api';
 };
 
-export const API_BASE_URL = 'https://quantix-backend-2w1l.onrender.com/api' || getDefaultApiBaseUrl();
+export const API_BASE_URL = process.env.EXPO_PUBLIC_API_BASE_URL || getDefaultApiBaseUrl();
 
 const api = axios.create({
   baseURL: API_BASE_URL,
